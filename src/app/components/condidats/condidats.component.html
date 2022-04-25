@@ -1,0 +1,256 @@
+<div class="container">
+   <div class="row" style="margin: 20px 0;">
+      <div class="col-lg-10 mx-auto mb-4">
+         <div class="section-title text-center ">
+             <h3 class="top-c-sep"></h3>
+             <p></p>
+              </div>
+     </div>
+ </div>
+ <div class="row">
+   <div class="col-lg-10 mx-auto">
+       <div class="career-search mb-60">
+
+           <form action="#" class="career-form mb-60">
+               <div class="row ">
+                   <div class="col-md-6 col-lg-9 my-3">
+                       <div class="input-group position-relative">
+                           <input  type="search" (ngModelChange)="searchCondidats(key.value)" #key="ngModel" ngModel
+                           name="key" id="searchName"  class="form-control" placeholder="Metier ,compétence,region, mot-clé" id="keywords" required>
+                       </div>
+                   </div>
+                   
+                   
+                   <div class="col-md-6 col-lg-3 my-3">
+                       <button type="button" class="btn btn-lg btn-block btn-light btn-custom" id="contact-submit">
+                             Search    
+                       </button>
+                   </div>
+               </div>
+               </form>
+</div> 
+<div class="filter-result" *ngIf="condidats.length > 0">
+         <div class="section-title text-center"><p class="mb-30 ff-montserrat "> {{condidats.length}} candidats disponible</p>
+</div>
+<div *ngIf="condidats?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+            <div class="alert alert-info" role="alert">
+              <h4 class="alert-heading">PAS CANDIDATS!</h4>
+              <p>Aucun candidat n'a été trouvé.</p>
+            </div>
+   </div>
+<div class="container" id="main-container">
+    <div class="row">
+     
+
+        <div *ngFor="let condidat of condidats" class="col-md-6 col-xl-3">
+            <div class="card m-b-30">
+                <div class="card-body row">
+                    <div class="col-6">
+                        <a href=""><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxyeOS0AKnFWdHyDvdO_7-dxvTMiifLhe2dTYxqeIzbJSjrkEaBXMb&usqp=CAU" alt="" class="img-fluid rounded-circle w-60"></a>
+                    </div>
+                    <div class="col-6 card-title align-self-center mb-0">
+                        <h5>{{condidat?.pseudo }}</h5>
+                        <p class="m-0">{{condidat?.fonction }}</p>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Email : <a href="#">{{condidat?.email }}</a></li>
+                    <li class="list-group-item"><i class="fa fa-phone float-right"></i>Numéro : {{condidat?.numero}}</li>
+                </ul>
+                <div class="card-body">
+                    <div class="float-right btn-group btn-group-sm">
+                     <!--  <a  (click)="onOpenModal(condidat, 'edit')"href="#" class="btn btn-primary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>--> 
+                        <a (click)="onOpenModal(condidat, 'delete')" href="." class="btn btn-secondary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash" ></i></a>
+                       <!-- <a (click)="onOpenModal(condidat, 'add')" href="#" class="btn btn-theard tooltips" data-placement="top" data-toggle="tooltip" data-original-title="add"><i class="fa fa-times"></i></a>
+                         -->
+                    </div>
+                   
+                </div>
+            </div>
+        
+        <!-- Add Employee Modal 
+         nom :String;
+     prenom:String;
+     pseudo : String ;
+    mot_de_passe:String ;
+    sexe :String;
+    date_naissance:Date;
+    numero:number;
+    email:String;
+    fonction :String ;
+    adresse :String;
+    pays:String;
+        -->
+        <!--
+<div class="modal fade" id="addCondidatModal" tabindex="-1" role="dialog" aria-labelledby="addCondidatModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="addCondidatModalLabel">Ajouter Candidat</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <form #addForm="ngForm" (ngSubmit)="onAddCondidat(addForm)" >
+            <div class="form-group" >
+               <label for="name">Name</label>
+               <input type="text" ngModel name="nom" class="form-control" id="nom" placeholder="nom" required>
+            </div>
+            <div class="form-group" >
+                <label for="name">Prenom</label>
+                <input type="text" ngModel name="prenom" class="form-control" id="prenom" placeholder="prenom" required>
+             </div>
+             <div class="form-group" >
+                <label for="name">Pseudo</label>
+                <input type="text" ngModel name="pseudo" class="form-control" id="pseudo" placeholder="pseudo" required>
+             </div>
+             <div class="form-group" >
+                <label for="name">Mots de Passe</label>
+                <input type="password" ngModel name="mot_de_passe" class="form-control" id="mot_de_passe" placeholder="mot_de_passe" required>
+             </div>
+             <div class="form-group" >
+                <label for="name">Sexe</label>
+                <input type="text" ngModel name="sexe" class="form-control" id="sexe" placeholder="sexe" required>
+             </div>
+             <div class="form-group" >
+                <label for="name">Date de naissance</label>
+                <input type="date" ngModel name="date_naissance" class="form-control" id="date_naissance" placeholder="date_naissance" required>
+             </div>
+             <div class="form-group" >
+                <label for="name">Numéro</label>
+                <input type="number" ngModel name="numero" class="form-control" id="numero" placeholder="numero" required>
+             </div>
+
+            <div class="form-group">
+               <label for="email">Email</label>
+               <input type="email" ngModel name="email" class="form-control" id="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+               <label for="phone">Title</label>
+               <input type="text" ngModel name="fonction" class="form-control" id="fonction" placeholder="fonction" required>
+            </div>
+            <div class="form-group">
+               <label for="phone">Adresse</label>
+               <input type="text" ngModel name="adresse" class="form-control" id="adresse" placeholder="adressee" required>
+            </div>
+            <div class="form-group">
+               <label for="phone">pays</label>
+               <input type="text" ngModel name="pays" class="form-control" id="pays" placeholder="pays" required>
+            </div>
+             <div class="form-group">
+               <label for="avatar">Choose a profile picture:</label>
+
+               <input type="file"
+                      id="image"  name="image" ngModel
+                      accept="image/png, image/jpg,image/jpeg"  required>
+           </div>
+
+            <div class="modal-footer">
+               <button type="button" id="add-condidat-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <button  type="submit" class="btn btn-primary" >Save changes</button>
+
+
+            </div>
+           
+
+
+
+            </form>
+         </div>
+      </div>
+    </div>
+    </div>
+ 
+   Edit Modal 
+  <div class="modal fade" id="updateCondidatModal" tabindex="-1" role="dialog" aria-labelledby="condidatEditModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+       <div class="modal-content">
+          <div class="modal-header">
+             <h5 class="modal-title" id="updateEmployeeModalLabel">Modifier Candidat {{editCondidat?.prenom}}</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+             </button>
+          </div>
+          <div class="modal-body">
+             <form #editForm="ngForm">
+                <div class="form-group" >
+                    <label for="name">Nom</label>
+                    <input type="text" ngModel="{{editCondidat?.nom}}" name="nom" class="form-control" id="name" placeholder="Name" required>
+                 </div>
+                 <input type="hidden" ngModel="{{editCondidat?.id}}" name="id" class="form-control" id="id" placeholder="Email">
+      
+                 <div class="form-group" >
+                     <label for="name">Prenom</label>
+                     <input type="text" ngModel="{{editCondidat?.prenom}}" name="prenom" class="form-control" id="prenom" placeholder="prenom" required>
+                  </div>
+                  <div class="form-group" >
+                     <label for="name">Pseudo</label>
+                     <input type="text" ngModel="{{editCondidat?.pseudo}}" name="pseudo" class="form-control" id="pseudo" placeholder="pseudo" required>
+                  </div>
+                  <div class="form-group" >
+                     <label for="name">Mots de Passe</label>
+                     <input type="password" ngModel="{{editCondidat?.mot_de_passe}}" name="mot_de_passe" class="form-control" id="password" placeholder="password" required>
+                  </div>
+                  <div class="form-group" >
+                     <label for="name">Sexe</label>
+                     <input type="text" ngModel="{{editCondidat?.sexe}}" name="sexe" class="form-control" id="sexe" placeholder="sexe" required>
+                  </div>
+                  
+                     <input type="hidden" ngModel="{{editCondidat?.date_naissance}}" name="date_naissance" class="form-control" id="date_naissance" placeholder="date_naissance" required>
+                  
+                  <div class="form-group" >
+                     <label for="name">Numéro</label>
+                     <input type="number"ngModel="{{editCondidat?.numero}}" name="numero" class="form-control" id="numero" placeholder="numero" required>
+                  </div>
+     
+                 <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" ngModel="{{editCondidat?.email}}" name="email" class="form-control" id="email" placeholder="Email" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="phone">Title</label>
+                    <input type="text" ngModel="{{editCondidat?.fonction}}" name="fonction" class="form-control" id="fonction" placeholder="fonction" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="phone">Adresse</label>
+                    <input type="text" ngModel="{{editCondidat?.adresse}}" name="adresse" class="form-control" id="adresse" placeholder="adressee" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="phone">pays</label>
+                    <input type="text" ngModel="{{editCondidat?.pays}}"l name="pays" class="form-control" id="pays" placeholder="pays" required>
+                 </div>
+                <div class="modal-footer">
+                   <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                   <button  (click)="onUpdateCondidat(editForm.value)"data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+                </div>
+             </form>
+          </div>
+       </div>
+    </div>
+  </div>
+-->
+  <!-- Delete Modal -->
+  <div class="modal fade" id="deleteCondidatModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+       <div class="modal-content">
+          <div class="modal-header">
+             <h5 class="modal-title" id="deleteModelLabel">Supprimer Condidat </h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+             </button>
+          </div>
+          <div class="modal-body">
+             <p> etes vous sur de supprimer le candidat {{deleteCondidat?.prenom}}? </p>
+             <div class="modal-footer">
+                <a type="button" class="btn btn-secondary" data-dismiss="modal">No </a>
+                <a (click)="onDeleteCondidat( deleteCondidat.id )" routerLink="." class="btn btn-danger" data-dismiss="modal" >Yes</a>
+             </div>
+          </div>
+       </div>
+    </div>
+  </div>
+ 
+</div>
+</div>
+</div>

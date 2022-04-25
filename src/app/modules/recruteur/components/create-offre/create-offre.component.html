@@ -1,0 +1,55 @@
+<div class="container w-50 vh-100">
+    <div class="row justify-content-center  h-100">
+        <div class="card my-auto shadow">
+            <div class="card-body p-5">
+                <div class="text-center">
+                    
+                </div>
+              
+                <div class="text-center">
+                    <h2>Create Offre</h2>
+                </div>
+                <p style="color: lightslategray;"></p>
+                <form #addForm="ngForm" (ngSubmit)=" onAddOffre(addForm)" >
+                    <div class="form-group" >
+                       <label for="name">Titre </label>
+                       <input type="text" ngModel name="titre" class="form-control" id="nom" placeholder="titre" required>
+                    </div>
+                    <div class="form-group" >
+                        <label for="name">Domaine</label>
+                        <input type="text" ngModel name="domaine" class="form-control" id="prenom" placeholder="domaine" required>
+                     </div>
+                     <div class="form-group" >
+                        <label for="name">Region</label>
+                        <input type="text" ngModel name="region" class="form-control" id="pseudo" placeholder="region" required>
+                     </div>
+                     <div class="form-group" >
+                        <label for="name">Condition </label>
+                        <input type="text" ngModel name="condition " class="form-control" id="mot_de_passe" placeholder="condition " required>
+                     </div>
+                    
+                     <div class="form-group" >
+                        <label for="name">Date Limite</label>
+                        <input type="date" ngModel name="date_fin" class="form-control" id="date_naissance" placeholder="date_fin" required>
+                     </div>
+                     
+        
+                    
+        
+                    <div class="modal-footer">
+                       <button type="button" id="add-condidat-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                       <button  type="submit" class="btn btn-primary" >Save changes</button>
+        
+        
+                    </div>
+                   
+        
+        
+        
+                    </form>
+            </div>
+          
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,155 @@
+<!--<div class="container w-25 vh-100">
+    <div class="row justify-content-center  h-100">
+        <div class="card my-auto shadow">
+            <div class="card-body p-5">
+                <div class="text-center">
+                    <fa-icon [icon]="faLock"  class="fa-3x"></fa-icon>
+                </div>
+                <div class="text-center">
+                    <h2>Sign up/h2>
+                </div>
+                <p style="color: lightslategray;"></p>
+                <form #addForm="ngForm" (ngSubmit)="onAddCondidat(addForm)" >
+                    <div class="form-group" >
+                       <label for="name">Name</label>
+                       <input type="text" ngModel name="nom" class="form-control" id="nom" placeholder="nom" required>
+                    </div>
+                    <div class="form-group" >
+                        <label for="name">Prenom</label>
+                        <input type="text" ngModel name="prenom" class="form-control" id="prenom" placeholder="prenom" required>
+                     </div>
+                     <div class="form-group" >
+                        <label for="name">Pseudo</label>
+                        <input type="text" ngModel name="pseudo" class="form-control" id="pseudo" placeholder="pseudo" required>
+                     </div>
+                     <div class="form-group" >
+                        <label for="name">Mots de Passe</label>
+                        <input type="password" ngModel name="mot_de_passe" class="form-control" id="mot_de_passe" placeholder="mot_de_passe" required>
+                     </div>
+                     
+                     <div class="form-group" >
+                        <label for="name">Numéro</label>
+                        <input type="number" ngModel name="numero" class="form-control" id="numero" placeholder="numero" required>
+                     </div>
+        
+                    <div class="form-group">
+                       <label for="email">Email</label>
+                       <input type="email" ngModel name="email" class="form-control" id="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                       <label for="phone">Title</label>
+                       <input type="text" ngModel name="fonction" class="form-control" id="fonction" placeholder="fonction" required>
+                    </div>
+                    <div class="form-group">
+                       <label for="phone">Adresse</label>
+                       <input type="text" ngModel name="adresse" class="form-control" id="adresse" placeholder="adressee" required>
+                    </div>
+                    <div class="form-group">
+                       <label for="phone">pays</label>
+                       <input type="text" ngModel name="pays" class="form-control" id="pays" placeholder="pays" required>
+                    </div>
+                     <div class="form-group">
+                       <label for="avatar">Choose a profile picture:</label>
+        
+                       <input type="file"
+                              id="image"  name="image" ngModel
+                              accept="image/png, image/jpg,image/jpeg"  required>
+                   </div>
+        
+                    <div class="modal-footer">
+                       <button type="button" id="add-condidat-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                       <button  type="submit" class="btn btn-primary" >Save changes</button>
+        
+        
+                    </div>
+                   
+        
+        
+        
+                    </form>
+            </div>
+            <div class="card-footer text-right">
+                <small>Ohh I remember <a routerLink="../signinre">Back to Login</a></small>
+            </div>
+        </div>
+    </div>
+</div>
+
+-->
+<div class="container w-25 vh-100">
+    <div class="row justify-content-center  h-100">
+        <div class="card my-auto shadow">
+            <div class="card-body p-5">
+                <div class="text-center">
+                    <fa-icon [icon]="faLock"  class="fa-3x"></fa-icon>
+                </div>
+                <div class="text-center">
+                    <h2>Signup</h2>
+                </div>
+                <p style="color: lightslategray;"></p>
+                <form #addForm="ngForm" (ngSubmit)="onAddRecruteur(addForm)" >
+                    <div class="form-group" >
+                       <label for="name">Name</label>
+                       <input type="text" ngModel name="nom" class="form-control" id="nom" placeholder="nom" required>
+                    </div>
+                    <div class="form-group" >
+                        <label for="name">Prenom</label>
+                        <input type="text" ngModel name="prenom" class="form-control" id="prenom" placeholder="prenom" required>
+                     </div>
+                     <div class="form-group" >
+                        <label for="name">Pseudo</label>
+                        <input type="text" ngModel name="pseudo" class="form-control" id="pseudo" placeholder="pseudo" required>
+                     </div>
+                     <div class="form-group" >
+                        <label for="name">Mots de Passe</label>
+                        <input type="password" ngModel name="mot_de_passe" class="form-control" id="mot_de_passe" placeholder="mot_de_passe" required>
+                     </div>
+                     
+                     <div class="form-group" >
+                        <label for="name">Numéro</label>
+                        <input type="number" ngModel name="numero" class="form-control" id="numero" placeholder="numero" required>
+                     </div>
+        
+                    <div class="form-group">
+                       <label for="email">Email</label>
+                       <input type="email" ngModel name="email" class="form-control" id="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                       <label for="phone">Title</label>
+                       <input type="text" ngModel name="fonction" class="form-control" id="fonction" placeholder="fonction" required>
+                    </div>
+                    <div class="form-group">
+                       <label for="phone">Adresse</label>
+                       <input type="text" ngModel name="adresse" class="form-control" id="adresse" placeholder="adressee" required>
+                    </div>
+                    <div class="form-group">
+                       <label for="phone">pays</label>
+                       <input type="text" ngModel name="pays" class="form-control" id="pays" placeholder="pays" required>
+                    </div>
+                     <div class="form-group">
+                       <label for="avatar">Choose a profile picture:</label>
+        
+                       <input type="file"
+                              id="image"  name="image" ngModel
+                              accept="image/png, image/jpg,image/jpeg"  required>
+                   </div>
+        
+                    <div class="modal-footer">
+                       <button type="button" id="add-condidat-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                       <button  type="submit" class="btn btn-primary" >Save changes</button>
+        
+        
+                    </div>
+                   
+        
+        
+        
+                    </form>
+            </div>
+            <div class="card-footer text-right">
+                <small>Ohh I remember <a routerLink="../signin">Back to Login</a></small>
+            </div>
+        </div>
+    </div>
+</div>
+

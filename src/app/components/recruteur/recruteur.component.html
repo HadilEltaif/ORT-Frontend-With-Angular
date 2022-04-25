@@ -1,0 +1,117 @@
+<div class="container" id="main-container">
+    <div class="row">
+     
+
+        <div  class="col-md-6 col-xl-3">
+            <div class="card m-b-30">
+                <div class="card-body row">
+                    <div class="col-6">
+                        <a href=""><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxyeOS0AKnFWdHyDvdO_7-dxvTMiifLhe2dTYxqeIzbJSjrkEaBXMb&usqp=CAU" alt="" class="img-fluid rounded-circle w-60"></a>
+                    </div>
+                    <div class="col-6 card-title align-self-center mb-0">
+                        <h5>{{recruteur?.pseudo }}</h5>
+                        <p class="m-0">{{recruteur?.fonction }}</p>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Email : <a href="#">{{recruteur?.email }}</a></li>
+                    <li class="list-group-item"><i class="fa fa-phone float-right"></i>Numéro : {{recruteur?.numero}}</li>
+                </ul>
+                <div class="card-body">
+                    <div class="float-right btn-group btn-group-sm">
+                       <a  (click)="onOpenModal(recruteur, 'edit')"href="./" class="btn btn-primary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+                        <a (click)="onOpenModal(recruteur, 'delete')" href="./" class="btn btn-secondary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash" ></i></a>
+                      
+                    </div>
+                   
+                </div>
+            </div>
+        
+     
+ 
+ 
+  <div class="modal fade" id="updateRecruteurModal" tabindex="-1" role="dialog" aria-labelledby="recruteurEditModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+       <div class="modal-content">
+          <div class="modal-header">
+             <h5 class="modal-title" id="updateEmployeeModalLabel">Modifier recruteur {{editRecruteur?.prenom}}</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+             </button>
+          </div>
+          <div class="modal-body">
+             <form #editForm="ngForm">
+                <div class="form-group" >
+                    <label for="name">Nom</label>
+                    <input type="text" ngModel="{{editRecruteur?.nom}}" name="nom" class="form-control" id="name" placeholder="Name" required>
+                 </div>
+                 <input type="hidden" ngModel="{{editRecruteur?.id}}" name="id" class="form-control" id="id" placeholder="Email">
+      
+                 <div class="form-group" >
+                     <label for="name">Prenom</label>
+                     <input type="text" ngModel="{{editRecruteur?.prenom}}" name="prenom" class="form-control" id="prenom" placeholder="prenom" required>
+                  </div>
+                  <div class="form-group" >
+                     <label for="name">Pseudo</label>
+                     <input type="text" ngModel="{{editRecruteur?.pseudo}}" name="pseudo" class="form-control" id="pseudo" placeholder="pseudo" required>
+                  </div>
+                  <div class="form-group" >
+                     <label for="name">Mots de Passe</label>
+                     <input type="password" ngModel="{{editRecruteur?.mot_de_passe}}" name="mot_de_passe" class="form-control" id="password" placeholder="password" required>
+                  </div>
+                  
+      
+                  <div class="form-group" >
+                     <label for="name">Numéro</label>
+                     <input type="number"ngModel="{{editRecruteur?.numero}}" name="numero" class="form-control" id="numero" placeholder="numero" required>
+                  </div>
+     
+                 <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" ngModel="{{editRecruteur?.email}}" name="email" class="form-control" id="email" placeholder="Email" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="phone">Title</label>
+                    <input type="text" ngModel="{{editRecruteur?.fonction}}" name="fonction" class="form-control" id="fonction" placeholder="fonction" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="phone">Adresse</label>
+                    <input type="text" ngModel="{{editRecruteur?.adresse}}" name="adresse" class="form-control" id="adresse" placeholder="adressee" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="phone">pays</label>
+                    <input type="text" ngModel="{{editRecruteur?.pays}}"l name="pays" class="form-control" id="pays" placeholder="pays" required>
+                 </div>
+                <div class="modal-footer">
+                   <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                   <button  (click)="onUpdateRecruteur(editForm.value)"data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+                </div>
+             </form>
+          </div>
+       </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="deleteRecruteurModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+       <div class="modal-content">
+          <div class="modal-header">
+             <h5 class="modal-title" id="deleteModelLabel">Supprimer Recruteur </h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+             </button>
+          </div>
+          <div class="modal-body">
+             <p> etes vous sur de supprimer le recruteur {{deleteRecruteur?.prenom}}? </p>
+             <div class="modal-footer">
+                <a type="button" class="btn btn-secondary" data-dismiss="modal">No </a>
+                <a (click)="onDeleteRecruteur( deleteRecruteur.id )" routerLink="." class="btn btn-danger" data-dismiss="modal" >Yes</a>
+             </div>
+          </div>
+       </div>
+    </div>
+  </div>
+ 
+</div>
+</div>
+</div>

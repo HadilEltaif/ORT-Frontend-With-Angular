@@ -1,0 +1,28 @@
+<app-headerr></app-headerr>
+<div class="row flex-lg-nowrap" style="margin:12px 0">
+    <div class="col-12 col-lg-auto mb-3" style="width: 200px;">
+      <div class="card p-3">
+        <div class="e-navlist e-navlist--active-bg">
+         
+            <a class="nav-link px-2 active" routerLink="./offres" routerLinkActive="router-link-active" ><i class="fa fa-fw fa-bar-chart mr-1"></i><span>Liste des offres</span></a><br>
+           
+             <a class="nav-link px-2" routerLink="./recruteur" target="__blank"><i class="fa fa-fw fa-cog mr-1"></i><span>Profile</span></a>
+             <a class="nav-link px-2" routerLink="./createOffre" target="__blank"><i class="fa fa-fw fa-cog mr-1"></i><span>Creer Offre</span></a>
+         
+        </div>
+      </div>
+    </div>
+ 
+<!-- component-->
+<div class="row flex-lg-nowrap">
+   <div class="col mb-3">
+       <div class="e-panel card">
+          <div class="card-body">
+           <router-outlet></router-outlet>
+         </div>
+     </div>
+  </div>
+</div>
+
+</div>
+<app-footerr></app-footerr>
